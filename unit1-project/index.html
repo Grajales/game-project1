@@ -2,44 +2,37 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata:700|Play" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Saying Puzzle</title>
+    <link rel="stylesheet" href="style.css" >
+  
   </head>
-  <body class="level level-three">
-
-    <main>
+  <body>
     <div class="container">
       <header >
-      
-          <div class="header_title">
-             <h2 class="h2_title">Saying:</h2>
-             <p>All good things come to he who ____</p>
-          </div>
-          <div class="header_score">
-            <h2 class="score js-score"> </h2>
-          </div>
-        
+        <div class="header_title">
+          <h1>Click the word to finish the saying</h1>
+          <h2 class="h2_title"> Saying: </h2>
+          <p> </p>
+          <h2 class="score">  </h2>
+        </div>
       </header>
       
       <section class="row1">
-        <span class="word js-dot" data-increment="20">sings</span>
-        <span class="word js-dot" data-increment="5">waits</span>
-        <span class="word js-dot" data-increment="10">runs</span>
-        <span class="word js-dot" data-increment="20">works</span>
-        <span class="word js-dot" data-increment="5">plays</span>
-        <span class="word js-dot" data-increment="10">dances</span>
+        <span class="word" id="0"> </span>
+        <span class="word" id="1"> </span>
+        <span class="word" id="2"> </span>
+        <span class="word" id="3"> </span>
+        <span class="word" id="4"> </span>
+        <span class="word" id="5"> </span>
       </section>
 
-
-      <footer class="level-footer">
-        <div class="winner">
-            <h1 class="title --xl-large">Winner!</h1>
-        </div>
+      <button class="next"> Next </button> 
+      <footer>
+        <button class="reset"> Reset </button> 
       </footer>
     </div>
-    </main>
+  
 
     <script src="script.js" charset="utf-8"></script>
 
