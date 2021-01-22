@@ -5,12 +5,13 @@ aside { grid-area: aside; }
 .row1 { grid-area: row1; }
 .next { grid-area: next; }
 .reset{ grid-area: reset;}
+.instructions{grid-area: instructions;}
 
 .container{
     display:grid;
     grid-template-areas: 
     "header header header header header"
-    "aside saying saying saying saying"
+    "instructions saying saying saying saying"
     "aside  row1 row1  row1  . "
      "reset  row1  row1  row1  next ";  
 }
@@ -31,7 +32,18 @@ aside { grid-area: aside; }
   }
   aside{
     text-align: left;
-    background-color: rgb(207, 213, 216);
+    font-family: 'Play', sans-serif;
+    font-size: 30px;
+    text-shadow: 1px 1px  midnightblue;
+    background-color: rgb(15, 111, 160);
+    height: auto;
+    width: 50%;
+  }
+  .instructions{
+    text-align: left;
+    font-family: 'Play', sans-serif;
+    height: auto;
+    width: 50%;
   }
   .saying{
     display:inline-flex;
@@ -79,8 +91,8 @@ aside { grid-area: aside; }
   background-color: red;
 }
 .next{
-   
-   display: inline-block;
+  
+   /* display: inline-block; */
    padding: 0.5em 1em;
    text-decoration: none;
    background: #f7f7f7;
@@ -88,14 +100,15 @@ aside { grid-area: aside; }
    color: #ff7c5c;
    font-weight: bold;
    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+   margin-right: 25%; 
 }
 .reset{  
   display: inline-block;
   position: relative;
   text-decoration: none;      
   color: rgba(3, 169, 244, 0.54);
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   text-align: center;
   background: rgb(255, 187, 0);
@@ -105,6 +118,10 @@ button{
  padding: 10px;
  margin: 30px;
  font-size: 20px;
+}
+.remaining-seconds{
+  color : orange;
+  font-size: 25px;
 }
   /*---
    * Animations

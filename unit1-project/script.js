@@ -13,7 +13,7 @@ let a =[];//Initializing a
 let saying=document.querySelector("p");
 let movingWords =document.querySelectorAll(".word");
 let wordTags = document.getElementsByClassName("word");
-var el = document.getElementById('countdown');
+var clockDown = document.getElementById('countdown');
 let scoreDisplay =document.querySelector(".score");
 let buttonNext = document.querySelector('.next');
 let buttonReset = document.querySelector('.reset');
@@ -110,7 +110,9 @@ function reset(){
   movingWords[i].addEventListener('click',wordClickEvent,{once:true});
   }
   a = indexShuffle()
+  aIndex = a.pop();
   readSay(aIndex)
+  return a
 }
 function next(){
   seconds=0;
@@ -125,6 +127,7 @@ function next(){
 
 
 readSay(aIndex) 
+let cancel = setInterval(incrementSeconds, 1000);
 
 buttonReset.addEventListener('click',reset);
 
@@ -135,10 +138,15 @@ buttonNext.addEventListener('click',next);
   function incrementSeconds() {
      seconds += 1;
      remainingSeconds = secondsLimit - seconds;
-     el.innerText = "This saying has " + remainingSeconds + " seconds reamining.";
+     let secondsRemaining = document.createElement("span")
+     secondsRemaining.classList.add("remaining-seconds")
+     secondsRemaining.innerText = remainingSeconds
+     clockDown.innerText = "This saying has this many seconds remaining: " 
+     clockDown.appendChild(secondsRemaining)
+     //clockDown.insertAfter= " seconds reamining.";
      if (remainingSeconds<=0){
       next()
      }
  }
- var cancel = setInterval(incrementSeconds, 1000);
+//
 
