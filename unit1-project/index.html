@@ -10,14 +10,27 @@
   <body>
     <div class="container">
       <header >
-        <div class="header_title">
-          <h1>Click the word to finish the saying</h1>
-          <h2 class="h2_title"> Saying: </h2>
-          <p> </p>
-          <h2 class="score">  </h2>
-        </div>
-      </header>
-      
+          <h1>Saying Puzzle</h1>
+      </header >
+      <aside>
+        <div class=instructions> 
+        <h2>Game instructions</h2>
+          <ul> 
+            <li>Click the one word that completes the saying </li>
+            <li> You have 30 seconds per saying </li>
+            <li> Click "Next" to bring a new saying or wait for the 30 seconds to expire</li>
+            <li> Click "Reset to reload the game</li>
+          </ul>
+      </div>
+        <div id="countdown"></div>
+        <h2 class="score">  </h2>
+      </aside>
+
+      <div class="saying">
+        <h2 class="h2_title"> Saying:&nbsp&nbsp </h2>
+        <p> </p>
+      </div>
+
       <section class="row1">
         <span class="word" id="0"> </span>
         <span class="word" id="1"> </span>
@@ -26,11 +39,10 @@
         <span class="word" id="4"> </span>
         <span class="word" id="5"> </span>
       </section>
-
-      <button class="next"> Next </button> 
-      <footer>
+         
+        <button class="next"> Next </button> 
         <button class="reset"> Reset </button> 
-      </footer>
+      
     </div>
   
 
