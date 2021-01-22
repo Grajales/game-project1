@@ -246,10 +246,10 @@ button{
      grid-template-areas: 
     "header "
     "ham "
-    "saying  "
-    "aside "
+    "saying "
     "row1"
     "next "
+    "aside "
     "reset"  ;  
 }
 }

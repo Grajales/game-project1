@@ -3,12 +3,12 @@
 let score=0;
 let perc=0;
 var seconds = 0;
-let secondsLimit =30;
+let secondsLimit =25; //Seconds countDown start value
+let remainingSeconds = 25;// Initial condition, this will change
 let count =0;
 let Tcount =0;
-let aIndex = 12; //initial a.length
-let sayingsMax =12; //Number of sayings available in the game
-let remainingSeconds = 30;// Start of seconds countdown
+let aIndex = 14; //initial a.length
+let sayingsMax =14; //Number of sayings available in the game
 let a =[];//Initializing a
 
 let saying=document.querySelector("p");
@@ -25,7 +25,7 @@ let hamburguer =document.querySelector(".hamIcon");
 //shuffle index array a=index numbers for each array of (sayings, words, score)
 //let a = [0, 1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 function indexShuffle(){
-let a = [0, 1, 2, 3, 4, 5,6,7,8,9,10,11]
+let a = [0, 1, 2, 3, 4, 5,6,7,8,9,10,11,12,13]
 for (var i = 0; i < 100; i++)
 {
 var index1 = Math.floor((Math.random() * a.length));// Get a random index1
@@ -45,7 +45,7 @@ function wordClickEvent(e) {
   let wordScore = [[0, 10, 0, 0,0,0],[0,0,0,0,0,10],
   [0,0,0,0,10,0],[0, 10, 0, 0,0,0],[0,0,10,0,0,0],
   [10,0,0,0,0,0],[0, 10, 0, 0,0,0],[0,0,0,0,10,0],
-  [0,0,0,10,0,0],[0,0,10,0,0,0],[0,0,0,0,0,10],[0,10,0,0,0,0]];
+  [0,0,0,10,0,0],[0,0,10,0,0,0],[0,0,0,0,0,10],[0,10,0,0,0,0],[0,0,0,10,0,0],[0,0,10,0,0,0]];
   
   let wordId = parseInt(e.target.id,10);
   let wordValue = wordScore[aIndex][wordId];
@@ -79,20 +79,24 @@ function readSay(num){
   "it is no use ____ over spilled milk",
   "Never say ____",
   "No man is an ____",
-  "look before you ___"
+  "look before you ___",
+  "____ is the best medicine",
+  "____ is the mother of invention"
   ];
   let wordList = [["dance", "wait", "read", "pause","play","weight"],
   ["good for","deserving of","merit","credit","value","worth"],
   ["yell","mute","chant","sing","speak","run"],
-  ["lanes","bridges","trails","boats","ropes","papers"],
-  ["water","hole","one basket","one cup","the boiler","the store"],
-  ["done","carved","buried","trashed","cooked","placed"],
+  ["lanes","bridges","trails","boats","ropes","bacon"],
+  ["water","a hole","one basket","one cup","the boiler","the storage"],
+  ["done","cone","made","trashed","cooked","placed"],
   ["scare","join","beat","silence","smile at","forget"],
   ["roasted","butter","squirrels","salt","monkeys","hungry"],
   ["singing","yelling","laughing","crying","tearing","sobbing"],
   ["always","forever","never","tomorrow","now","when"],
   ["ignorant","ego","elephant","astronaut","igloo","island"],
-  ["climb","leap","run","fly","cross","rest"]];
+  ["climb","leap","run","fly","cross","rest"],
+  ["dancing","broccoli","spinach","laughter","chocolate","walking"],
+  ["intelligence","ignorance","necessity","curiosity","work","dedication"]];
   let aIndex = num;
   saying.innerText=  sayingList[aIndex];
   
