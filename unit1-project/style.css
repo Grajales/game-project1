@@ -5,15 +5,15 @@ aside { grid-area: aside; }
 .row1 { grid-area: row1; }
 .next { grid-area: next; }
 .reset{ grid-area: reset;}
-.instructions{grid-area: instructions;}
+.hamMenu{grid-area: ham;}
 
 .container{
     display:grid;
     grid-template-areas: 
-    "header header header header header"
-    "instructions saying saying saying saying"
-    "aside  row1 row1  row1  . "
-     "reset  row1  row1  row1  next ";  
+    "header header  header header"
+    "ham saying  saying saying"
+    "aside  row1   row1  . "
+     "reset  row1   row1 next ";  
 }
 
  body {
@@ -33,21 +33,28 @@ aside { grid-area: aside; }
   aside{
     text-align: left;
     font-family: 'Play', sans-serif;
-    font-size: 30px;
-    text-shadow: 1px 1px  midnightblue;
-    background-color: rgb(15, 111, 160);
+    
     height: auto;
     width: 50%;
   }
   .instructions{
+    display:none;
     text-align: left;
     font-family: 'Play', sans-serif;
     height: auto;
     width: 50%;
   }
+  .instructions.toggleCls{
+    display:block;
+  }
+  .hamIcon{
+    margin-left: 20px; 
+    cursor: pointer;
+    font-size: 30px;
+   }
   .saying{
     display:inline-flex;
- }
+   }
 
   h1 {
     /* font-family: 'Play', sans-serif; */
@@ -102,17 +109,25 @@ aside { grid-area: aside; }
    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
    margin-right: 25%; 
 }
+#next{
+  color: #ff7c5c;
+  background-color: white;
+}
 .reset{  
   display: inline-block;
   position: relative;
   text-decoration: none;      
-  color: rgba(3, 169, 244, 0.54);
+  color:green;
   width: 80px;
   height: 80px;
   border-radius: 50%;
   text-align: center;
   background: rgb(255, 187, 0);
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.08);
+}
+#reset{
+  color: green;
+  background-color: rgb(255, 187, 0);
 }
 button{
  padding: 10px;
@@ -123,6 +138,21 @@ button{
   color : orange;
   font-size: 25px;
 }
+#countdown{
+  color: white;
+  font-size: 20px;
+  text-align:left;
+  text-shadow: 1px 1px  midnightblue;
+  width:auto;
+  height:auto;
+  background-color: rgb(15, 111, 160);
+}
+.score{
+  background-color: rgb(15, 111, 160);
+  font-size: 20px;
+  text-shadow: 1px 1px  midnightblue;
+}
+
   /*---
    * Animations
    --- */
@@ -211,13 +241,19 @@ button{
     }
   }
 /* Clock */
-#countdown{
-  color: white;
-  font-size: 20px;
-  text-align:left;
-  width:auto;
-  height:auto;
+@media screen and (max-width: 600px) {
+  .container{
+     grid-template-areas: 
+    "header "
+    "ham "
+    "saying  "
+    "aside "
+    "row1"
+    "next "
+    "reset"  ;  
 }
+}
+
 
 
 

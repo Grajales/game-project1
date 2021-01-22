@@ -1,6 +1,7 @@
 
 //Variables Initialization
 let score=0;
+let perc=0;
 var seconds = 0;
 let secondsLimit =30;
 let count =0;
@@ -17,6 +18,8 @@ var clockDown = document.getElementById('countdown');
 let scoreDisplay =document.querySelector(".score");
 let buttonNext = document.querySelector('.next');
 let buttonReset = document.querySelector('.reset');
+let hamburguer =document.querySelector(".hamIcon");
+
 
 
 //shuffle index array a=index numbers for each array of (sayings, words, score)
@@ -51,13 +54,11 @@ function wordClickEvent(e) {
        e.target.classList.add('green');
     } else {e.target.classList.add('red'); }
   score += wordValue;
-  perc = ((score/(score*count)) * 100).toFixed(1)
-  scoreDisplay.innerHTML = "Accumulated points: " + score + "<br>" + "You did "+count+ " clicks. <br>" +
-  "Your click success rate was " + perc + " %"
+  perc = ((score/(10*count)) * 100).toFixed(1)
+  scoreDisplay.innerHTML = "Accumulated score: " + score + " <br>" + "Number of clicks: "+count+ " <br>" +
+  "Click success rate (%): " + perc 
 
-  if (a.length<=1){
-    alert("You did " + count + " sayings, good JOB!! This game is over. " + "<br>" +" Your final accumulated points: " + score + " points per clicks " + perc + " %" );
-    } 
+
 }
 movingWords[0].addEventListener('click',wordClickEvent);
 movingWords[1].addEventListener('click',wordClickEvent);
@@ -65,7 +66,7 @@ movingWords[2].addEventListener('click',wordClickEvent);
 movingWords[3].addEventListener('click',wordClickEvent);
 movingWords[4].addEventListener('click',wordClickEvent);
 movingWords[5].addEventListener('click',wordClickEvent);
-
+hamburguer.addEventListener('click',toggleHam);
 function readSay(num){
   let sayingList = ["All good things come to those who ____",
   "A picture is ____ a thousand words", 
@@ -116,12 +117,17 @@ function reset(){
 }
 function next(){
   seconds=0;
+  saying.style.animationName ="none";
   for(let i=0; i<6; i++) {
     movingWords[i].classList.remove('green');
     movingWords[i].classList.remove('red');
   }
   aIndex = a.pop();
-  readSay(aIndex)
+  // might want to remove "p" and bring it back to activate "slidein";
+  if (a.length<1){
+    alert("You did " + count + " sayings, good JOB!! This game is over. " + "\r\n" +" Your final accumulated points: " + score + "\r\n" + " Points per clicks (%) " + perc + "\r\n" + "Click reset to start over");
+    } 
+  readSay(aIndex);
   return aIndex
 }
 
@@ -147,6 +153,10 @@ buttonNext.addEventListener('click',next);
      if (remainingSeconds<=0){
       next()
      }
+ }
+ function toggleHam(){
+   let menu =document.querySelector(".instructions")
+   menu.classList.toggle("toggleCls")
  }
 //
 
